@@ -123,8 +123,46 @@ let answer = `Hello ${myHTML} and ${myJS}`;
 console.log(answer)
 
 // If-Else
+/* 
+if (condition) {}
+else if (condition) {}
+else {}
+*/
 
 // switch case
+/*
+switch(expression) {
+    case 1:
+        code
+        break
+    default:
+        code
+}
+*/
 
-// For, while, Do-while
+// For, For In, For Of while, Do-while
+for (let i = 0; i < 5; ++i)
+    i += 2;
 
+const person = {fname: "John", lname: "Doe", age: 25}
+let text = ""
+for (let x in person) {
+    text += person[x];
+}
+
+const cars = ["BMW", "Volvo", "Mini"];
+let text2 = "";
+for (let x of cars) {
+  text2 += x;
+}
+
+while (i < 3) {
+    text += "The number is " + i;
+    i++;
+}
+
+do {
+    text += "The number is " + i;
+    i++;
+  }
+while (i < 5);

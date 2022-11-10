@@ -7,17 +7,76 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1 id="heading">JavScript Tutorial</h1>
-        <div id="myfirst" class="child red good" id="first">child 1</div>
-        <div class="child">child 2</div>
-        <div class="child red">child 3</div>
-        <div class="child">child 4</div>
-        <form action="./2_Arrays_Object_Functions_DOM.html" method="POST">
-            Search: <input type="button" value="submit">
-        </form>
-    </div>
+    <p id="intro">Finding <b>HTML Element by Id</b></p>
+    <p id="demo"></p>
+    <p class="par">Hello World!</p>
+
+    <p>Finding HTML Elements by Query Selector</p>
+    <p class="intro2">Hello World!.</p>
+    <p class="intro2">This example demonstrates the <b>querySelectorAll</b> method.</p>
+
+    <p id="demo"></p>
+
+    <!-- Form Validation -->
+    <h2>JavaScript Validation</h2>
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+        Name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Please input a number between 1 and 10:</p>
+    <input id="numb">
+    <button type="button" onclick="myFunction()">Submit</button>
+    <p id="demo"></p>
+
+    <!-- Using Events -->
+    <h1 id="id1">My Heading 1</h1>
+
+    <button type="button" onclick="document.getElementById('id1').style.color = 'red'">
+        Click Me!
+    </button>
+
+    <!-- Events -->
+    <h1 onclick="this.innerHTML = 'oops!'">Click on this text!</h1>
+    <h1 onclick="changeText(this)">Click on this text!</h1>
+
     <script src="3_DOM.js">
+        const element = document.getElementById("intro")
+        document.getElementById("demo").innerHTML = "The text from the intro paragraph is: " + element.innerHTML;
+    
+        const element2 = document.getElementsByTagName("p");
+        document.getElementById("demo").innerHTML = 'The text in first paragraph index 0 is: ' + element2[0].innerHTML;
+
+        const element3 = document.getElementsByClassName("par");
+        document.getElementById("par").innerHTML = 'The first paragraph index 0 with class is: ' + element3[0].innerHTML;
+
+        const x = document.querySelectorAll("p.intro2");
+        document.getElementById("demo").innerHTML = 'The first paragraph (index 0) with class="intro2" is: ' + x[0].innerHTML;
+
+        // Form validation
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
+        function myFunction() {
+            let x = document.getElementById("numb").value;
+            let text;
+            if (isNaN(x) || x < 1 || x > 10) {
+                text = "Input not valid";
+            } else {
+                text = "Input OK";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        // Events
+        function changeText(id) {
+            id.innerHTML = "Ooops!";
+        }
 
     </script>
 </body>

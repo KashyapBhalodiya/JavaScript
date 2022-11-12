@@ -58,8 +58,25 @@ document.getElementById("first").innerHTML = "Date: " + Date();
 // Syntax: document.getElementById(id).style.property = new style
 // document.getElementById("p2").style.color = "blue";
 
-// *** Using Events
+// * Using Events
 
+// * HTML Collections
+// It is an array-like collection of HTML elements.
+// The element collection can be accessed by index(start at 0)
+// *** Length property
+// It returns the number of elements in an HTMLcollections.
+// *** item property
+// Returns the element at a specified index
+// *** namedItem
+// Returns the element with a specified id
 
+/*
+Difference b/w HTMLCollection and NodeList
+-> HTMLCollection is a collection of document elements.
+-> NodeList is a collection of document nodes (element nodes, attributes node and text nodes)
+*/
 
+// * NodeList
+// It is an array-like collection of Node Objects.
+// Properties and methods: entries(), forEach(), item(), keys(), length, values()
 

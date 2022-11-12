@@ -40,6 +40,58 @@
     <h1 onclick="this.innerHTML = 'oops!'">Click on this text!</h1>
     <h1 onclick="changeText(this)">Click on this text!</h1>
 
+    <!-- HTML COLLECTION -->
+    <h2>The length Property</h2>
+    <p>Click "Change" to change all elements with class="myclass":</p>
+    <button onclick="myFunction()">Change</button>
+    <p>I am a paragraph.</p>
+    <p class="myclass">I am a paragraph.</p>
+    <p class="myclass">I am a paragraph.</p>
+
+    <h2>The item() Method</h2>
+    <p>Click "Change" to change the font size of to all elements with class="myclass".</p>
+    <button onclick="myFunction()">Change</button>
+    <p>I am a paragraph.</p>
+    <p class="myclass">I am a paragraph.</p>
+    <p class="myclass">I am a paragraph.</p>
+
+    <h2>The namedItem() Method</h2>
+    <p id="myElement">This example uses a shorthand method for the namedItem() method.</p>
+    <p>Click "Get" to get the content of the p element with id="myElement":</p>
+    <button onclick="myFunction()">Get</button>
+    <p id="demo"></p>
+
+    <!-- NodeList -->
+    <h2>The entries() Method</h2>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The body element's child nodes entries are:</p>
+    <p id="demo"></p>
+
+    <h2>The forEach() Method</h2>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The body element's child nodes are:</p>
+    <p id="demo"></p>
+
+    <h2>The childNodes Property</h2>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The body element's child nodes are:</p>
+    <p id="demo"></p>
+
+    <h2>The keys() Method</h2>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The keys of the body element's child nodes are:</p>
+    <p id="demo"></p>
+
+    <p>The number of child nodes in the body element are:</p>
+    <p id="demo"></p>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+
+    <h2>The values() Method</h2>
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The body element's child nodes are:</p>
+    <p id="demo"></p>
+
+
     <script src="3_DOM.js">
         const element = document.getElementById("intro")
         document.getElementById("demo").innerHTML = "The text from the intro paragraph is: " + element.innerHTML;
@@ -78,6 +130,67 @@
             id.innerHTML = "Ooops!";
         }
 
+        // HTML collections
+        function myFunction() {
+            const collection = document.getElementsByClassName("myclass");
+            for (let i = 0; i < collection.length; i++) {
+                collection[i].style.fontSize = "24px";
+            }
+        }
+
+        function myFunction() {
+            const collection = document.getElementsByClassName("myclass");
+            for (let i = 0; i < collection.length; i++) {
+                collection.item(i).style.fontSize = "24px";
+            }
+        }
+
+        function myFunction() {
+            const collection = document.getElementsByTagName("p");
+            const element = collection["myElement"];
+            document.getElementById("demo").innerHTML = element.innerHTML;
+        }
+
+        // NodeList
+        const list = document.body.childNodes;
+        let text = "";
+        for(let x of list.entries()) {
+            text += x[0] + " " + x[1] + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+
+        const list = document.body.childNodes;
+        let text = "";
+        list.forEach(
+        function(node, index) {
+            text += index + " " + node + "<br>";
+        });
+        document.getElementById("demo").innerHTML = text;
+
+        const nodeList = document.body.childNodes;
+        let text = "";
+        for (let i = 0; i < nodeList.length; i++) {
+            text += nodeList[i].nodeName + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+        
+        const list = document.body.childNodes;
+        let text = "";
+        for (let x of list.keys()) {
+            text += x + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+
+        const nodeList = document.body.childNodes;
+        let number = nodeList.length;
+        document.getElementById("demo").innerHTML = number;
+
+        const list = document.body.childNodes;
+        let text = "";
+        for (let x of list.values()) {
+            text += x + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
     </script>
 </body>
 </html>

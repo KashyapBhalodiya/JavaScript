@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./3_XML_PHP_ASP.js"></script>
+    <title>Document</title>
+    <style type="text/stylesheet">
+        table, td, th {
+            border: 1px solid darkblue;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="loadDoc()">Get my CD collection</button>
+    <br><br>
+    <table id="tabele1"></table>
+
+    <p>Suggestions: <span id="txtHint"></span></p> 
+    <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p> <!-- onkeyup: fires when the user releases a key on the keyboard -->
+
+    
+</body>
+</html>

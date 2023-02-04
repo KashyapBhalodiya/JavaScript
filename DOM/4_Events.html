@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function changeText(id) {
+            id.innerHTML = "Ooops!";
+        }
+
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+        document.getElementById("myBtn").onclick = displayDate;
+
+        function checkCookies() {
+            var text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "Cookies are enabled";
+            } else {
+                text = "Cookies are not enabled";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+        function upperCase() {
+            const x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+        }
+        function mOver(obj) {
+            obj.innerHTML = "Thank you";
+        }
+        function mOut(obj) {
+            obj.innerHTML = "Mouse Over me";
+        }
+    </script>
+</head>
+<body onload="checkCookies()">
+    <!-- HTML DOM Events -->
+    <!-- HTML Events:
+        When a user clicks the mouse
+        When a web page has loaded
+        When an image has been loaded
+        When the mouse moves over an element
+        When an input field is changed
+        When an HTML form is submitted
+        When a user strokes a key
+    -->
+    <h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+    
+    <h1 onclick="changeText(this)">Click on this text!</h1>
+
+    <!-- HTML Event attributes -->
+    <p id="demo"></p>
+
+    <!-- Assign events using the HTML DOM -->
+    <button id="myBtn">Click Here</button>
+
+    <!-- onload and onunload events -->
+    <!-- <body onload="function" -->
+
+    <!-- onchange event -->
+    <br>
+    Enter your name: 
+    <input type="text" id="frame" onchange="upperCase()">
+
+    <!-- onmouseover, onmouseout, onmousedown, onmouseup, onclick, onmousedown, onmouseup, onload, onfocus -->
+    <br>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color: yellow; width: 120px; height: 20px; padding: 30px;">
+        Mouse Over Event
+    </div>
+</body>
+</html>
